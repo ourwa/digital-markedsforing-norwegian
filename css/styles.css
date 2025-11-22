@@ -1,0 +1,576 @@
+/* Base reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+/* Layout container */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1rem;
+}
+
+/* Header  */
+.site-header {
+  background: radial-gradient(circle at top left, #960f0f , #06031d 65%, #a2adc4 100%);
+  color: #f9fafb;
+  padding: 1.3rem 1rem 1.6rem;
+  box-shadow: 0 14px 40px rgba(15,23,42,0.45);
+
+  /* التعديل المهم */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 20;
+  backdrop-filter: blur(8px);
+}
+/* إذا عندك body فيه كلاس page */
+body.page main,
+body.page .container {
+  padding-top: 7rem;  /* جرّب 6–7rem وعدّل حسب ارتفاع الهيدر عندك */
+}
+
+.site-header__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.site-header__brand h1 {
+  margin: 0.1rem 0;
+  font-size: 2rem;
+}
+
+.site-header__subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.brand-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.55rem;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(248,250,252,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(15,23,42,0.35);
+}
+
+.site-nav {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.site-nav a {
+  color: #f9fafb;
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(248,250,252,0.28);
+  background: rgba(15,23,42,0.35);
+  backdrop-filter: blur(6px);
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.site-nav a:hover {
+  background: rgba(15,23,42,0.75);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(15,23,42,0.45);
+}
+
+/* Card sections */
+.section-card {
+  background: radial-gradient(circle at top, #020617, #020617 40%, #020617);
+  border-radius: 1rem;
+  padding: 1.4rem 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(148,163,184,0.28);
+  box-shadow: 0 18px 40px rgba(15,23,42,0.75);
+}
+
+.section-card h2 {
+  margin-top: 0;
+  font-size: 1.7rem;
+  letter-spacing: 0.02em;
+}
+
+.section-card h3 {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: #6BB6FF;
+}
+
+/* Lists */
+.section-card ul {
+  padding-left: 1.1rem;
+}
+
+/* Badges, chips */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.chip {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.7);
+  background: rgba(15,23,42,0.65);
+}
+
+/* Personas */
+.persona-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 720px) {
+  .persona-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}
+
+.persona-card {
+  background: radial-gradient(circle at top left, #1e293b, #020617);
+  border-radius: 1rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid rgba(148,163,184,0.4);
+  box-shadow: 0 18px 40px rgba(15,23,42,0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.persona-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.persona-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #e11d48, #f97316);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #f9fafb;
+}
+
+.persona-meta {
+  font-size: 0.85rem;
+  color: #cbd5f5;
+}
+
+.persona-card h3 {
+  margin: 0;
+}
+
+.persona-title {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+.persona-list {
+  font-size: 0.9rem;
+  padding-left: 1rem;
+}
+
+/* Kundereise */
+.journey-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .journey-grid {
+    grid-template-columns: repeat(4, minmax(0,1fr));
+  }
+}
+
+.journey-step {
+  background: radial-gradient(circle at top, #1f2937, #020617);
+  border-radius: 0.9rem;
+  padding: 1rem 1rem;
+  border: 1px solid rgba(148,163,184,0.5);
+}
+
+.journey-step h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.journey-step-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+}
+
+/* Tables (kanalplan) */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.table thead {
+  background: rgba(15,23,42,0.9);
+}
+
+.table th,
+.table td {
+  padding: 0.6rem 0.7rem;
+  border-bottom: 1px solid rgba(55,65,81,0.85);
+  text-align: left;
+}
+
+.table th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.table tr:nth-child(even) td {
+  background: rgba(15,23,42,0.65);
+}
+
+/* Ads grid */
+.ads-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .ads-grid {
+    grid-template-columns: repeat(3, minmax(0,1fr));
+  }
+}
+
+.ad-card {
+  background: radial-gradient(circle at top left, #1f2937, #020617);
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(148,163,184,0.45);
+}
+
+.ad-placeholder {
+  border-radius: 0.75rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(148,163,184,0.08),
+    rgba(148,163,184,0.08) 6px,
+    rgba(15,23,42,0.9) 6px,
+    rgba(15,23,42,0.9) 12px
+  );
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-bottom: 0.7rem;
+}
+
+/* Newsletter layout */
+.newsletter-layout {
+  display: grid;
+  grid-template-columns: minmax(0,1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 840px) {
+  .newsletter-layout {
+    grid-template-columns: 1.4fr 1fr;
+  }
+}
+
+.newsletter-preview {
+  border-radius: 1rem;
+  background: #020617;
+  border: 1px solid rgba(148,163,184,0.45);
+  padding: 1rem;
+}
+
+/* Landing page mock */
+.lp-hero {
+  padding: 1.3rem 1.4rem;
+  border-radius: 1rem;
+  background: radial-gradient(circle at top left, #e11d48, #0f172a 55%, #020617);
+  border: 1px solid rgba(251,113,133,0.6);
+  margin-bottom: 1rem;
+}
+
+.lp-hero h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+.lp-columns {
+  display: grid;
+  grid-template-columns: minmax(0,1.2fr);
+  gap: 1rem;
+}
+
+@media (min-width: 880px) {
+  .lp-columns {
+    grid-template-columns: minmax(0,1.3fr) minmax(0,1fr);
+  }
+}
+
+.lp-box {
+  border-radius: 0.9rem;
+  padding: 1rem 1.1rem;
+  background: #020617;
+  border: 1px solid rgba(148,163,184,0.45);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #f97316;
+  color: #020617;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #fb923c;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid rgba(55,65,81,0.9);
+  padding: 1rem 1rem 1.4rem;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-align: center;
+  background: #020617;
+}
+
+.site-footer__meta {
+  margin-top: 0.2rem;
+}
+
+/* Small helpers */
+.muted {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  border: 1px solid rgba(148,163,184,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+h2 {
+  background: linear-gradient(to right, #e73f3f, #f0eb8c);
+  background-clip: text;              /* ← السطر الجديد الضروري */
+  -webkit-background-clip: text;      /* ← للمتصفحات المبنية على WebKit */
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+.channel-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .channel-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.channel-card {
+  border: 1px solid #ec5252;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  
+}
+
+.channel-card h4 {
+  margin-top: 0;
+  color: #f0eb8c;
+}
+
+.channel-phase {
+  font-size: 0.9rem;
+  
+  margin-bottom: 0.5rem;
+}
+
+.channel-budget,
+.channel-kpi {
+  font-size: 0.9rem;
+}
+
+/* Segmentering / måling grids */
+
+.segmentation-grid,
+.measurement-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .segmentation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .measurement-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.segmentation-grid h4,
+.measurement-grid h4 {
+  margin-top: 0;
+  color: #f0eb8c;
+}
+
+
+/* ====== GENERELLE BILDER ====== */
+.ads-grid img,
+.banner-grid img,
+figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ====== GRID FOR AD-CARDS ====== */
+.ads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* ====== ENKELT ANNONSER ====== */
+.ad-card {
+  background: #0c0b0b;
+  padding: 1.4rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.ad-card figure {
+  margin: 0 0 1rem 0;
+}
+
+/* ====== FULL-WIDTH ANNONSER ====== */
+.ad-card-full {
+  grid-column: 1 / -1;
+}
+
+/* ====== BANNER-GRID ====== */
+.banner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.banner-grid figure {
+  margin: 0;
+}
+
+/* ====== TEKST & FIGCAPTION ====== */
+figure figcaption {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: .6rem;
+  line-height: 1.4;
+}
+
+/* ====== FORHINDRE STRETCH ====== */
+.ad-card img,
+.banner-grid img {
+  max-height: 340px;
+  object-fit: cover;
+}
+
+
+
+.ad-card img,
+.ad-card figure img,
+.banner-grid img,
+.ads-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* اجعل الإطار يكبر حسب محتوى الصورة */
+.ad-card figure {
+  width: 100%;
+  height: auto;
+}
+
