@@ -430,8 +430,8 @@ body.page .container {
 }
 h2 {
   background: linear-gradient(to right, #e73f3f, #f0eb8c);
-  background-clip: text;              /* ← السطر الجديد الضروري */
-  -webkit-background-clip: text;      /* ← للمتصفحات المبنية على WebKit */
+  background-clip: text;             
+  -webkit-background-clip: text;    
   -webkit-text-fill-color: transparent;
 }
 
@@ -568,7 +568,7 @@ figure figcaption {
   border-radius: 8px;
 }
 
-/* اجعل الإطار يكبر حسب محتوى الصورة */
+
 .ad-card figure {
   width: 100%;
   height: auto;
